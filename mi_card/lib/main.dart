@@ -20,7 +20,7 @@ class MyAppCard extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20.0),
             color: const Color.fromARGB(255, 3, 62, 62),
             child: const Text(
-              'Genilson do Carmo',
+              'Genilson do Carmo Silva',
               style: TextStyle(
                 color: Color.fromARGB(255, 102, 205, 170),
                 fontSize: 29.0,
