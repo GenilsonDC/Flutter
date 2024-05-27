@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mi_card/custom_colors/custom_colors.dart';
 
 void main() {
   runApp(const MyAppCard());
@@ -9,24 +10,91 @@ class MyAppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 3, 62, 62),
+        backgroundColor: lightColor,
         body: SafeArea(
-          child: Container(
-            height: 60.0,
-            width: 415.0,
-            margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-            padding: const EdgeInsets.only(top: 20.0),
-            color: const Color.fromARGB(255, 3, 62, 62),
-            child: const Text(
-              'Genilson do Carmo Silva',
-              style: TextStyle(
-                color: Color.fromARGB(255, 102, 205, 170),
-                fontSize: 29.0,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircleAvatar(
+                radius: 80.0,
+                backgroundImage: AssetImage('images/avatar.jpg'),
               ),
-            ),
+              Text(
+                'Genilson',
+                style: TextStyle(
+                  fontFamily: 'GreatVibes',
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.normal,
+                  color:darkBlueColor,
+                ),
+              ),
+              Text(
+                'Desenvolvedor Mobile',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.normal,
+                  color: blueColor,
+                  letterSpacing: 3.5,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                CircleAvatar(
+                    backgroundColor: lightColor,
+                    radius: 20.0,
+                    backgroundImage: AssetImage('images/flutter.png'),
+                  ),
+                SizedBox(width: 20.0, height: 30.0,),
+                CircleAvatar(
+                    backgroundColor: lightColor,
+                    radius: 20.0,
+                    backgroundImage: AssetImage('images/react.png'),
+                  )
+                ],
+              ),
+              SizedBox(height: 20.0,
+              width: 200.0,
+              child: Divider(color: lightBlueColor,),),
+             Card(
+                color: blueColor,
+                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                 child: ListTile(
+                   leading: Icon(Icons.call_outlined,
+                     color: lightColor,
+                   ),
+                   title: Text('+55 15 91232-1231',
+                     textAlign: TextAlign.center,
+                     style: TextStyle(
+                         fontFamily: 'Montserrat',
+                         fontSize: 17.0,
+                         fontWeight: FontWeight.w700,
+                         color: lightColor
+                     )))),
+            Card(
+                color: blueColor,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: ListTile(
+                leading: Icon(Icons.email_outlined,
+                    color: lightColor,
+                    ),
+                    title:
+                    Text('genilsondocarmo@gmail.com',
+                      textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w700,
+                      color: lightColor
+                    ),
+                    ),
+                ),
+              )
+            ],
           ),
         ),
       ),
