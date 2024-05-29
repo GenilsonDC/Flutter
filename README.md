@@ -12,7 +12,6 @@ src="https://img.shields.io/github/followers/GenilsonDC?logo=github&style=for-th
 
 
 
-
-<img src="Documentation/img1.png" alt="GenilsonDC Banner" style="zoom: 50%;" /> <img src="Documentation/img2.png" alt="GenilsonDC Banner" style="zoom: 55%;" />
+<img src="Documentation/img1.png" alt="GenilsonDC Banner"  /> <img src="Documentation/img2.png" alt="GenilsonDC Banner"  />
 
 [![linkedin](Documentation/linkedin.png)](https://www.linkedin.com/in/genilson-do-carmo-8a42b89a/) [![instagram](Documentation/instagram.png)](https://www.instagram.com/genilson_carmo/)
