@@ -1,6 +1,6 @@
 # Jogando os dados
 
-## A second Flutter project.
+## This is my second Flutter project.
 
 ###  Skills
 
@@ -8,9 +8,7 @@
    <img src="https://github.com/GenilsonDC/Skills_icons_48x48/blob/main/icons/flutter.png?raw=true"  alt="flutter" />  <img src="https://github.com/GenilsonDC/Skills_icons_48x48/blob/main/icons/dart.png?raw=true"  alt="dart language" />
 </p>
 
-![GenilsonDC Banner](Documentation/img1.png)
-
-​		![GenilsonDC Banner](Documentation/gif1.gif)
+   <img src="Documentation/img1.png" alt="GenilsonDC Banner" style="zoom:80%;" /> <img src="Documentation/gif1.gif" alt="GenilsonDC Banner" style="zoom: 50%;" />
 
 
 

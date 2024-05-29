@@ -1,16 +1,14 @@
-# mi_card
+# Mi Card
 
-A new Flutter project.
+## 🐛 This is my first Flutter project .
 
-## Getting Started
+###  Skills
 
-This project is a starting point for a Flutter application.
+<p align="left">
+   <img src="https://github.com/GenilsonDC/Skills_icons_48x48/blob/main/icons/flutter.png?raw=true"  alt="flutter" />  <img src="https://github.com/GenilsonDC/Skills_icons_48x48/blob/main/icons/dart.png?raw=true"  alt="dart language" />
+</p>
+  
 
-A few resources to get you started if this is your first Flutter project:
+ <img src="Documentation/img1.png" alt="GenilsonDC Banner" style="zoom:67%;" /> 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![linkedin](Documentation/linkedin.png)](https://www.linkedin.com/in/genilson-do-carmo-8a42b89a/) [![instagram](Documentation/instagram.png)](https://www.instagram.com/genilson_carmo/)
