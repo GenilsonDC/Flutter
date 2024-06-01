@@ -22,70 +22,85 @@ class XylophoneApp extends StatelessWidget {
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.pink,
-                shape: const LinearBorder()),
-                child: const Text(''),
-                onPressed: () {
-                  playSound(1);
-                },
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.pink,
+                  shape: const LinearBorder()),
+                  child: const Text(''),
+                  onPressed: () {
+                    playSound(1);
+                  },
+                ),
               ),
-              TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.indigo,
-                shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.indigo,
+                  shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(2);
+                  },
                 ),
-                onPressed: () {
-                  playSound(2);
-                },
               ),
-              TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.cyan,
-                    shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.cyan,
+                      shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(3);
+                  },
                 ),
-                onPressed: () {
-                  playSound(3);
-                },
-              ),TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.green,
-                    shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              ),Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.green,
+                      shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(4);
+                  },
                 ),
-                onPressed: () {
-                  playSound(4);
-                },
-              ),TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.yellow,
-                    shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              ),Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.yellow,
+                      shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(5);
+                  },
                 ),
-                onPressed: () {
-                  playSound(5);
-                },
-              ),TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.orange,
-                    shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              ),Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.orange,
+                      shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(6);
+                  },
                 ),
-                onPressed: () {
-                  playSound(6);
-                },
-              ),TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.red,
-                    shape: const LinearBorder()),
-                child: const Text(
-                  '',
+              ),Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.red,
+                      shape: const LinearBorder()),
+                  child: const Text(
+                    '',
+                  ),
+                  onPressed: () {
+                    playSound(7);
+                  },
                 ),
-                onPressed: () {
-                  playSound(7);
-                },
               ),
             ],
           ),
