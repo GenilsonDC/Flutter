@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Quizzler());
+void main() => runApp(const Quizzler());
 
 class Quizzler extends StatelessWidget {
+  const Quizzler({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
-        body: SafeArea(
+        body: const SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: QuizPage(),
@@ -21,18 +23,22 @@ class Quizzler extends StatelessWidget {
 }
 
 class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreIcons = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Expanded(
+        const Expanded(
           flex: 5,
           child: Padding(
             padding: EdgeInsets.all(10.0),
@@ -50,12 +56,12 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
                   foregroundColor: Colors.white),
-              child: Text(
+              child: const Text(
                 'True',
                 style: TextStyle(
                   color: Colors.white,
@@ -63,19 +69,27 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                //The user picked true.
+                setState(() {
+                  scoreIcons.add(
+                    const Icon(
+                      Icons.check,
+                      color: Colors.green,
+                    ),
+                  );
+                });
+
               },
             ),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: Colors.redAccent,
                   foregroundColor: Colors.white),
-              child: Text(
+              child: const Text(
                 'False',
                 style: TextStyle(
                   fontSize: 20.0,
@@ -83,12 +97,22 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                //The user picked false.
+                setState(() {
+                  scoreIcons.add(
+                    const Icon(
+                      Icons.close,
+                      color: Colors.red,
+                    ),
+                  );
+                });
+
               },
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
+        Row(
+          children: scoreIcons,
+        ),
       ],
     );
   }
