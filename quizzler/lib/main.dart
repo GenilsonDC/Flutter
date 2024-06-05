@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'questions_brain.dart';
-import 'check_answer.dart';
 
-CheckAnswer checkAnswer = CheckAnswer();
 QuestionsBrain questionBrain = QuestionsBrain();
 
 void main() => runApp(const Quizzler());
@@ -36,6 +34,51 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreIcons = [];
+
+  void checkAnswer(bool userAnswer) {
+    bool correctAnswer = questionBrain.getQuestionAnswer();
+    setState(() {
+      if (questionBrain.isFinished() == true) {
+        Alert(
+          context: context,
+          type: AlertType.success,
+          title: "Fim ",
+          desc: "Você finalizou o Quizzler!\n Parabéns.",
+          buttons: [
+            DialogButton(
+              onPressed: () => Navigator.pop(context),
+              gradient: const LinearGradient(colors: [
+                Color.fromRGBO(116, 116, 191, 1.0),
+                Color.fromRGBO(52, 138, 199, 1.0)
+              ]),
+              child: const Text(
+                "Fechar",
+                style: TextStyle(
+                    fontFamily: 'Staatliches',
+                    color: Colors.white, fontSize: 30),
+              ),
+            )
+          ],
+        ).show();
+        questionBrain.reset();
+        scoreIcons = [];
+      } else {
+        if (userAnswer == correctAnswer) {
+          scoreIcons.add(const Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scoreIcons.add(const Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+        }
+        questionBrain.nextQuestion();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +120,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer.checkAnswer(true, () {
-                  setState(() {
-                    questionBrain.nextQuestion();
-                  });
-                });
+                checkAnswer(true);
               },
             ),
           ),
@@ -103,18 +142,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                checkAnswer.checkAnswer(false, () {
-                  setState(() {
-                    questionBrain.nextQuestion();
-                  });
-                });
+                checkAnswer(false);
               },
             ),
           ),
         ),
-
         Row(
-          children: checkAnswer.scoreIcons,
+          children: scoreIcons,
         ),
       ],
     );

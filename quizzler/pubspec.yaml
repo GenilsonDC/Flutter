@@ -84,3 +84,7 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: fonts/MontserratAlternates-Regular.ttf
+
+    - family: GreatVibes
+      fonts:
+        - asset: fonts/GreatVibes-Regular.ttf
