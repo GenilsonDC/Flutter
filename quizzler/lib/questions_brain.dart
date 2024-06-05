@@ -1,7 +1,9 @@
 import 'question.dart';
 
 class QuestionsBrain {
-  List<Question> questionsBuffer = [
+  int _questionNumber = 0;
+
+  final List<Question> _questionsBuffer = [
     Question(questionText: 'O sol é uma estrela.', questionAnswer: true),
     Question(questionText: 'Os pinguins podem voar.', questionAnswer: false),
     Question(
@@ -40,4 +42,33 @@ class QuestionsBrain {
         questionText: 'As tartarugas podem viver por mais de 100 anos.',
         questionAnswer: true),
   ];
+
+  int nextQuestion() {
+    if (_questionNumber < _questionsBuffer.length - 1) {
+      _questionNumber++;
+    } else {
+      _questionNumber = 0;
+    }
+    return _questionNumber;
+  }
+
+  String getQuestionText() {
+    return _questionsBuffer[_questionNumber].questionText;
+  }
+
+  bool getQuestionAnswer() {
+    return _questionsBuffer[_questionNumber].questionAnswer;
+  }
+
+  bool isFinished() {
+    if (_questionNumber >= _questionsBuffer.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void reset(){
+    _questionNumber = 0;
+  }
 }

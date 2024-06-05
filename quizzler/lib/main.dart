@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'questions_brain.dart';
 import 'check_answer.dart';
 
@@ -35,6 +36,7 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,8 +49,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionBrain
-                    .questionsBuffer[checkAnswer.questionNumber].questionText,
+                questionBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 40.0,
@@ -77,7 +78,9 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 checkAnswer.checkAnswer(true, () {
-                  setState(() {});
+                  setState(() {
+                    questionBrain.nextQuestion();
+                  });
                 });
               },
             ),
@@ -101,12 +104,15 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 checkAnswer.checkAnswer(false, () {
-                  setState(() {});
+                  setState(() {
+                    questionBrain.nextQuestion();
+                  });
                 });
               },
             ),
           ),
         ),
+
         Row(
           children: checkAnswer.scoreIcons,
         ),

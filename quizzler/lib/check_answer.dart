@@ -7,8 +7,8 @@ class CheckAnswer {
   QuestionsBrain questionBrain = QuestionsBrain();
 
   void checkAnswer(bool userAnswer, Function updateState) {
-    bool correctAnswer =
-        questionBrain.questionsBuffer[questionNumber].questionAnswer;
+    bool correctAnswer = questionBrain.getQuestionAnswer();
+
     if (userAnswer == correctAnswer) {
       scoreIcons.add(
         const Icon(
@@ -25,11 +25,12 @@ class CheckAnswer {
       );
     }
 
-    if (questionNumber < questionBrain.questionsBuffer.length - 1) {
-      questionNumber++;
-    } else {
-      questionNumber = 0;
+    if (questionBrain.isFinished()) {
       scoreIcons = [];
+      questionBrain.reset();
+    } else {
+      questionNumber++;
+      questionBrain.nextQuestion();
     }
 
     updateState();
