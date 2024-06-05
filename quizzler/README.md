@@ -13,6 +13,6 @@
 
 
 
-| <img src="Documentation/img1.png" alt="tela"  /> | <img src="Documentation/gif1.gif" alt="tela"  /> |
-| :----------------------------------------------: | :----------------------------------------------: |
+| <img src="Documentation/img1.png" alt="tela"  /> | <img src="Documentation/img2.png" alt="tela"  /> | <img src="Documentation/gif1.gif" alt="tela"  /> |
+| :----------------------------------------------: | :----------------------------------------------: | ------------------------------------------------ |
 
