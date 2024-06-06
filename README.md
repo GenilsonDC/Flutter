@@ -7,12 +7,10 @@
 </p>
 
 
-
-| <img src="Documentation/img1.png" alt="GenilsonDC Banner"  /> | <img src="Documentation/img2.png" alt="mobile app"  /> | <img src="Documentation/img3.png" alt="GenilsonDC Banner"  /> |
-| :----------------------------------------------------------- | :----------------------------------------------------- | :----------------------------------------------------------- |
-| <img src="Documentation/img4.png" alt="mobile app"  />       | <img src="Documentation/img5.png" alt="mobile app"  /> |                                                              |
-
-
+| [<img src="Documentation/gif1.gif" alt="gif animado do primeiro app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/mi_card) | [<img src="Documentation/gif2.gif" alt="gif animado do segundo app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/jogando_os_dados) | [<img src="Documentation/gif3.gif" alt="gif animado do terceiro app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/Magic_ball) |
+| :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [<img src="Documentation/gif4.gif" alt="gif animado do quarto app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/Xylophone) | [<img src="Documentation/gif5.gif" alt="gif animado do app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/quizzler) | [<img src="Documentation/gif6.gif" alt="gif animado do app em Flutter e dart" />](https://github.com/GenilsonDC/Flutter/tree/main/destini) |
+|                                                              |                                                              |                                                              |
 
    
 
