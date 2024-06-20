@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'input_page.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'app_colors.dart';
 
 void main() => runApp(const BMiCalculator());
 
@@ -10,7 +10,7 @@ class BMiCalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xff040024),
+      seedColor: seedColorBg,
     );
     return MaterialApp(
       title: 'BMi Calculator',

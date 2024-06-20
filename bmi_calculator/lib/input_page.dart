@@ -6,7 +6,6 @@ import 'app_colors.dart';
 
 const bottomContainerHeight = 90.0;
 
-// 0xff009DFD
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -15,6 +14,21 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  bool _maleSelected = false;
+  bool _femaleSelected = true;
+
+  void _toggleGender(bool isMale) {
+    setState(() {
+      if (isMale) {
+        _maleSelected = true;
+        _femaleSelected = false;
+      } else {
+        _maleSelected = false;
+        _femaleSelected = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,31 +56,41 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         children: <Widget>[
-          const Expanded(
-              child: Row(
-            children: <Widget>[
-              Expanded(
-                child: ReusableCard(
-                  customColor: inactiveButtonColor,
-                  cardChild: IconContent(
-                    icon: FontAwesomeIcons.mars,
-                    iconColor: iconCardMale,
-                    label: 'MaLe',
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => _toggleGender(true),
+                    child: ReusableCard(
+                      customColor:
+                          _maleSelected ? cardColor : inactiveButtonColor,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        iconColor: _maleSelected ? iconCardMale : iconCardColor,
+                        label: 'Male',
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: ReusableCard(
-                  customColor: cardColor,
-                  cardChild: IconContent(
-                    icon: FontAwesomeIcons.venus,
-                    iconColor: iconCardFemale,
-                    label: 'Female',
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => _toggleGender(false),
+                    child: ReusableCard(
+                      customColor:
+                          _femaleSelected ? cardColor : inactiveButtonColor,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        iconColor:
+                            _femaleSelected ? iconCardFemale : iconCardColor,
+                        label: 'Female',
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            ),
+          ),
           const Expanded(
             child: ReusableCard(
               cardChild: Column(
@@ -76,26 +100,27 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           const Expanded(
-              child: Row(
-            children: <Widget>[
-              Expanded(
-                child: ReusableCard(
-                  cardChild: Column(
-                    children: <Widget>[],
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: Column(
+                      children: <Widget>[],
+                    ),
+                    customColor: cardColor,
                   ),
-                  customColor: cardColor,
                 ),
-              ),
-              Expanded(
-                child: ReusableCard(
-                  cardChild: Column(
-                    children: <Widget>[],
+                Expanded(
+                  child: ReusableCard(
+                    cardChild: Column(
+                      children: <Widget>[],
+                    ),
+                    customColor: cardColor,
                   ),
-                  customColor: cardColor,
                 ),
-              ),
-            ],
-          )),
+              ],
+            ),
+          ),
           Container(
             color: bottomContainerColor,
             margin: const EdgeInsets.only(top: 10.0),
@@ -107,5 +132,3 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
-
-

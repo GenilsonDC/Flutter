@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const headerColor = Color(0xff191919);
 const bottomContainerColor = Color(0xffF97300);
+const seedColorBg = Color(0xff040024);
 
 //Cards
 const inactiveButtonColor = Color(0xff4E4958);
