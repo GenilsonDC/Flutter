@@ -63,8 +63,8 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () => _toggleGender(true),
                     child: ReusableCard(
-                      customColor:
-                          _maleSelected ? cardColor : inactiveButtonColor,
+                      cardColor:
+                          _maleSelected ? cardColorSelected : cardColorInactive,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         iconColor: _maleSelected ? iconCardMale : iconCardColor,
@@ -77,8 +77,8 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () => _toggleGender(false),
                     child: ReusableCard(
-                      customColor:
-                          _femaleSelected ? cardColor : inactiveButtonColor,
+                      cardColor:
+                          _femaleSelected ? cardColorSelected : cardColorInactive,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         iconColor:
@@ -96,7 +96,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 children: <Widget>[],
               ),
-              customColor: cardColor,
+              cardColor: cardColorSelected,
             ),
           ),
           const Expanded(
@@ -107,7 +107,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       children: <Widget>[],
                     ),
-                    customColor: cardColor,
+                    cardColor: cardColorSelected,
                   ),
                 ),
                 Expanded(
@@ -115,7 +115,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       children: <Widget>[],
                     ),
-                    customColor: cardColor,
+                    cardColor: cardColorSelected,
                   ),
                 ),
               ],
