@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
+import 'constants.dart';
 
-const customLabel = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 30,
-    fontWeight: FontWeight.w700,
-    color: cardTextColor);
 
 class IconContent extends StatelessWidget {
   const IconContent(
@@ -33,7 +28,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: customLabel,
+          style: kTextLabel,
         ),
       ],
     );
