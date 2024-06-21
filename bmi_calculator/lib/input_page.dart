@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/reusable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
@@ -15,6 +16,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   int _height = 180;
+  int _weight = 60;
+  int _age = 20;
   bool _maleSelected = false;
   bool _femaleSelected = true;
 
@@ -92,7 +95,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-           Expanded(
+          Expanded(
             child: ReusableCard(
               cardChild: Column(
                 children: <Widget>[
@@ -117,36 +120,80 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: kCardTextColor,
-                      inactiveTrackColor: kIconCardColor,
-                      thumbColor: _maleSelected ? kIconCardMale: kIconCardFemale,
-                      overlayColor: _maleSelected ? kIconCardMale.withAlpha(123) : kIconCardFemale.withAlpha(123),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0)
+                        activeTrackColor: kCardTextColor,
+                        inactiveTrackColor: kIconCardColor,
+                        thumbColor:
+                            _maleSelected ? kIconCardMale : kIconCardFemale,
+                        overlayColor: _maleSelected
+                            ? kIconCardMale.withAlpha(123)
+                            : kIconCardFemale.withAlpha(123),
+                        thumbShape:
+                            RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30.0)),
+                    child: Slider(
+                      value: _height.toDouble(),
+                      min: 120,
+                      max: 310,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          _height = newValue.round();
+                        });
+                      },
                     ),
-                    child: Slider(value: _height.toDouble(),
-                        min: 120,
-                        max: 310,
-                        onChanged: (double newValue) {
-                      setState(() {
-                        _height = newValue.round();
-
-                      });
-
-                        },),
                   )
                 ],
               ),
               cardColor: kCardColorSelected,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
                     cardChild: Column(
-                      children: <Widget>[],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Weight',
+                          style: kTextLabel,
+                        ),
+                        Text(
+                          _weight.toString(),
+                          style: kNumbersLabel,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SquareButtons(
+                              icon: FontAwesomeIcons.minus,
+                              onPressButton: () {
+                                setState(() {
+                                  _weight--;
+                                });
+                              },
+                              iconColor: _maleSelected
+                                  ? kIconCardMale
+                                  : kIconCardFemale,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            SquareButtons(
+                              icon: FontAwesomeIcons.plus,
+                              onPressButton: () {
+                                setState(() {
+                                  _weight++;
+                                });
+                              },
+                              iconColor: _maleSelected
+                                  ? kIconCardMale
+                                  : kIconCardFemale,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     cardColor: kCardColorSelected,
                   ),
@@ -154,7 +201,45 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardChild: Column(
-                      children: <Widget>[],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text('Age', style: kTextLabel),
+                        Text(
+                          _age.toString(),
+                          style: kNumbersLabel,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            SquareButtons(
+                              icon: FontAwesomeIcons.minus,
+                              onPressButton: () {
+                                setState(() {
+                                  _age--;
+                                });
+                              },
+                              iconColor: _maleSelected
+                                  ? kIconCardMale
+                                  : kIconCardFemale,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            SquareButtons(
+                              icon: FontAwesomeIcons.plus,
+                              onPressButton: () {
+                                setState(() {
+                                  _age++;
+                                });
+                              },
+                              iconColor: _maleSelected
+                                  ? kIconCardMale
+                                  : kIconCardFemale,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     cardColor: kCardColorSelected,
                   ),
@@ -164,7 +249,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10.0),
+            margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: bottomContainerHeight,
             child: const Center(

@@ -16,7 +16,7 @@ const kTextLabel = TextStyle(
 
 const kNumbersLabel = TextStyle(
   fontFamily: 'Dosis',
-  fontSize: 60,
+  fontSize: 55,
   fontWeight: FontWeight.w900,
   color: kTextLabelColor,
 );
@@ -39,4 +39,4 @@ const kCardColorSelected = Color(0xffE2DFD0);
 const kCardTextColor = Color(0xff8f8e8e);
 const kIconCardColor = Color(0xffb7b7b7);
 const kIconCardMale = Color(0xff0175c9);
-const kIconCardFemale = Color(0xffa500b0);
+const kIconCardFemale = Color(0xffb000ad);

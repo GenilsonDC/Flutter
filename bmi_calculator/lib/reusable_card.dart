@@ -10,7 +10,9 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      margin:
+          const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 5.0, top: 5.0),
+      padding: const EdgeInsets.only(bottom: 5),
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(10.0),
