@@ -15,14 +15,13 @@ class BMiCalculator extends StatelessWidget {
       brightness: Brightness.dark,
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BMi Calculator',
       theme: ThemeData(
-          colorScheme: colorScheme,
-          scaffoldBackgroundColor: colorScheme.onSecondary,
-          ),
-
+        colorScheme: colorScheme,
+        scaffoldBackgroundColor: colorScheme.onSecondary,
+      ),
       home: const InputPage(),
     );
   }
 }
-
