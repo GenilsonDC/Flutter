@@ -2,7 +2,11 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class SquareButtons extends StatelessWidget {
-  const SquareButtons({super.key, required this.icon, required this.iconColor, required this.onPressButton});
+  const SquareButtons(
+      {super.key,
+      required this.icon,
+      required this.iconColor,
+      required this.onPressButton});
 
   final IconData icon;
   final Color iconColor;
@@ -21,8 +25,11 @@ class SquareButtons extends StatelessWidget {
       elevation: 6.0,
       fillColor: kCardColorSelected.withAlpha(230),
       onPressed: onPressButton,
-      child: Icon(icon, color: iconColor),
-
+      child: Icon(
+        icon,
+        color: iconColor,
+        size: 35.0,
+      ),
     );
   }
 }

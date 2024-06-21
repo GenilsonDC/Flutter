@@ -1,9 +1,12 @@
-import 'package:bmi_calculator/reusable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_content.dart';
-import 'constants.dart';
+import 'package:bmi_calculator/components/reusable_button.dart';
+import 'package:bmi_calculator/calculate_logic.dart';
+import 'results_page.dart';
+import '../components/reusable_card.dart';
+import '../components/bottom_button.dart';
+import '../components/icon_content.dart';
+import '../constants.dart';
 
 const bottomContainerHeight = 90.0;
 
@@ -18,6 +21,7 @@ class _InputPageState extends State<InputPage> {
   int _height = 180;
   int _weight = 60;
   int _age = 20;
+  String _sex = 'female';
   bool _maleSelected = false;
   bool _femaleSelected = true;
 
@@ -26,9 +30,11 @@ class _InputPageState extends State<InputPage> {
       if (isMale) {
         _maleSelected = true;
         _femaleSelected = false;
+        _sex = 'male';
       } else {
         _maleSelected = false;
         _femaleSelected = true;
+        _sex = 'female';
       }
     });
   }
@@ -120,17 +126,18 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                        activeTrackColor: kCardTextColor,
-                        inactiveTrackColor: kIconCardColor,
-                        thumbColor:
-                            _maleSelected ? kIconCardMale : kIconCardFemale,
-                        overlayColor: _maleSelected
-                            ? kIconCardMale.withAlpha(123)
-                            : kIconCardFemale.withAlpha(123),
-                        thumbShape:
-                            RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                        overlayShape:
-                            RoundSliderOverlayShape(overlayRadius: 30.0)),
+                      activeTrackColor: kCardTextColor,
+                      inactiveTrackColor: kIconCardColor,
+                      thumbColor:
+                          _maleSelected ? kIconCardMale : kIconCardFemale,
+                      overlayColor: _maleSelected
+                          ? kIconCardMale.withAlpha(123)
+                          : kIconCardFemale.withAlpha(123),
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
                     child: Slider(
                       value: _height.toDouble(),
                       min: 120,
@@ -177,7 +184,7 @@ class _InputPageState extends State<InputPage> {
                                   ? kIconCardMale
                                   : kIconCardFemale,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             SquareButtons(
@@ -223,7 +230,7 @@ class _InputPageState extends State<InputPage> {
                                   ? kIconCardMale
                                   : kIconCardFemale,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             SquareButtons(
@@ -247,17 +254,26 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
-            child: const Center(
-              child: Text(
-                'Calculate',
-                style: kBottomTextLabel,
-              ),
-            ),
+          BottomButton(
+            buttonTitle: 'Calculate',
+            ontTap: () {
+              CalculateLogic bmiCalc = CalculateLogic(
+                height: _height,
+                weight: _weight,
+                sex: _sex,
+                age: _age,
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(
+                    bmiResult: bmiCalc.calculateBMI(),
+                    resultText: bmiCalc.getResult(),
+                    messageResult: bmiCalc.getResultMessage(),
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

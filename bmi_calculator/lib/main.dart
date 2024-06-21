@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'input_page.dart';
+import 'screens/input_page.dart';
 import 'constants.dart';
 
 void main() => runApp(const BMiCalculator());
@@ -9,18 +9,18 @@ class BMiCalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final ColorScheme colorScheme = ColorScheme.fromSeed(
-      seedColor: kSeedColorBg,
+      seedColor: kCardColorInactive,
+      brightness: Brightness.dark,
     );
     return MaterialApp(
       title: 'BMi Calculator',
       theme: ThemeData(
           colorScheme: colorScheme,
-          scaffoldBackgroundColor: colorScheme.secondary,
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: colorScheme.onTertiary,
-            foregroundColor: colorScheme.primary,
-          )),
+          scaffoldBackgroundColor: colorScheme.onSecondary,
+          ),
+
       home: const InputPage(),
     );
   }
