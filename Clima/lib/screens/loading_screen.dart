@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:clima/services/location.dart';
+import 'package:http/http.dart' as http;
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -10,46 +10,63 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  late Location location;
+
   @override
   void initState() {
     super.initState();
+    location = Location();
     requestLocationPermission();
   }
 
-  void requestLocationPermission() async {
-    var status = await Permission.locationWhenInUse.status;
-    if (status.isDenied || status.isRestricted) {
-      if (await Permission.locationWhenInUse.request().isGranted) {
-        getLocation();
-      } else {
-        print('User denied permissions to access the device\'s location.');
-      }
-    } else {
-      getLocation();
-    }
+  Future<void> requestLocationPermission() async {
+    await location.requestLocationPermission();
   }
 
-  void getLocation() async {
-    try {
-      Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.low);
-      print('Dados da posição: $position');
-    } catch (e) {
-      print('Error obtaining location: $e');
+  Future<void> getLocation() async {
+    await location.getCurrentPosition();
+  }
+
+  void getData() async {
+    double? latitude = location.latitude;
+    double? longitude = location.longitude;
+    var url = Uri.https(
+      'api.openweathermap.org',
+      '/data/2.5/weather',
+      {
+        'lat': '$latitude',
+        'lon': '$longitude',
+        'appid': 'fcd6d71598a09bf97ac04d15dc4e4c85',
+      },
+    );
+
+    http.Response response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      print('🟢🟢🟢🟢🟢 Status 200 - OK 🟢🟢🟢🟢🟢');
+      print(response.body);
+    } else {
+      print(
+          '🟡🟡🟡🟡🟡- Request failed with status: ${response.statusCode} 🟡🟡🟡🟡🟡');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    getData();
     return Scaffold(
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             requestLocationPermission();
+            getLocation();
           },
           child: const Text(
             '🌎 Get location ',
-            style: TextStyle(fontFamily: 'Dosis', fontWeight: FontWeight.w700),
+            style: TextStyle(
+                fontFamily: 'Dosis',
+                fontSize: 23.0,
+                fontWeight: FontWeight.w700),
           ),
         ),
       ),
