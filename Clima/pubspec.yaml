@@ -1,0 +1,58 @@
+name: clima
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.1 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.6
+  geolocator: ^12.0.0
+  permission_handler: ^11.3.1
+  http: ^1.2.1
+  convert: ^3.1.1
+  flutter_spinkit: ^5.2.1
+  auto_size_text: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^3.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+   - images/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+
+  fonts:
+   - family: Dosis
+     fonts:
+       - asset: fonts/Dosis-Medium.ttf
+       - asset: fonts/Dosis-Regular.ttf
+       - asset: fonts/Dosis-SemiBold.ttf
+
+   - family: GreatVibes
+     fonts:
+       - asset: fonts/GreatVibes-Regular.ttf
+
