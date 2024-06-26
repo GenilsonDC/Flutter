@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:clima/constants/constants.dart';
+import 'package:clima/services/weather.dart';
+import 'package:clima/screens/location_screen.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:clima/services/location.dart';
-import 'package:http/http.dart' as http;
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -10,64 +13,42 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  late BuildContext _context;
   late Location location;
 
   @override
   void initState() {
     super.initState();
     location = Location();
-    requestLocationPermission();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _context = context;
+      requestLocationPermission();
+    });
   }
 
   Future<void> requestLocationPermission() async {
     await location.requestLocationPermission();
+    getLocationData();
   }
 
-  Future<void> getLocation() async {
-    await location.getCurrentPosition();
-  }
+  void getLocationData() async {
+    var weatherData = await WeatherModel().getLocationWeather();
 
-  void getData() async {
-    double? latitude = location.latitude;
-    double? longitude = location.longitude;
-    var url = Uri.https(
-      'api.openweathermap.org',
-      '/data/2.5/weather',
-      {
-        'lat': '$latitude',
-        'lon': '$longitude',
-        'appid': 'fcd6d71598a09bf97ac04d15dc4e4c85',
-      },
-    );
-
-    http.Response response = await http.get(url);
-
-    if (response.statusCode == 200) {
-      print('🟢🟢🟢🟢🟢 Status 200 - OK 🟢🟢🟢🟢🟢');
-      print(response.body);
-    } else {
-      print(
-          '🟡🟡🟡🟡🟡- Request failed with status: ${response.statusCode} 🟡🟡🟡🟡🟡');
-    }
+    Navigator.push(_context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(
+        locationWeather: weatherData,
+      );
+    }));
   }
 
   @override
   Widget build(BuildContext context) {
-    getData();
     return Scaffold(
+      backgroundColor: kBlackColorBg,
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            requestLocationPermission();
-            getLocation();
-          },
-          child: const Text(
-            '🌎 Get location ',
-            style: TextStyle(
-                fontFamily: 'Dosis',
-                fontSize: 23.0,
-                fontWeight: FontWeight.w700),
-          ),
+        child: SpinKitSpinningLines(
+          color: kBlueColor,
+          size: 190.0,
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
-// API Sorocaba/Brazil LINK: https://api.openweathermap.org/data/2.5/weather?lat=-23.4213536&lon=-47.4624792&appid=fcd6d71598a09bf97ac04d15dc4e4c85
+
 class Location {
   double? latitude;
   double? longitude;
@@ -9,16 +9,16 @@ class Location {
     var status = await Permission.locationWhenInUse.status;
     if (status.isDenied || status.isRestricted) {
       if (await Permission.locationWhenInUse.request().isGranted) {
-        await getCurrentPosition();
+        await getCurrentLocation();
       } else {
         print('User denied permissions to access the device\'s location.');
       }
     } else {
-      await getCurrentPosition();
+      await getCurrentLocation();
     }
   }
 
-  Future<void> getCurrentPosition() async {
+  Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.low);
