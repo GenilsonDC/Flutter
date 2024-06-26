@@ -40,7 +40,6 @@ const kLandscapeConditionTextStyle = TextStyle(
   color: kBraunColor,
 );
 const kLandscapeMessageTextStyle = TextStyle(
-  fontSize: 40.0,
   fontFamily: 'Dosis',
   fontWeight: FontWeight.w600,
   color: kBraunColor,

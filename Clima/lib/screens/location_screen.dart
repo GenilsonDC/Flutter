@@ -29,10 +29,14 @@ class _LocationScreenState extends State<LocationScreen> {
 
   void updateUI(dynamic weatherData) {
     setState(() {
-      if (weatherData == null) {
+      if (weatherData == null || weatherData['cod'] != 200) {
         temperature = 0;
-        weatherIcon = Text('Error');
-        weatherMessage = 'Unable to get weather data';
+        weatherIcon = Image.asset(
+          'images/404.png',
+          height: 120,
+          width: 150,
+        );
+        weatherMessage = 'Check your writing';
         cityName = '';
         description = '';
         return;
@@ -93,7 +97,7 @@ class _LocationScreenState extends State<LocationScreen> {
                           );
                           if (typedName != null) {
                             var weatherData =
-                                await weather.getCityWeather(typedName);
+                            await weather.getCityWeather(typedName);
                             updateUI(weatherData);
                           }
                         },
@@ -130,12 +134,12 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   AutoSizeText(
-                    '$weatherMessage in $cityName',
+                    cityName!.isNotEmpty ? '$weatherMessage in $cityName' : 'Please\nCheck your writing',
                     textAlign: TextAlign.center,
                     style: orientation == Orientation.portrait
                         ? kMessageTextStyle
                         : kLandscapeMessageTextStyle,
-                    maxLines: 3,
+                    maxLines: 4,
                     minFontSize: 20.0,
                     overflow: TextOverflow.ellipsis,
                   ),
