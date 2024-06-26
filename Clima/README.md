@@ -7,7 +7,7 @@
 ###  Skills
 
 ```
-  API: https://openweathermap.org/
+  API: api.openweathermap.org/data/2.5/weather
   geolocator: ^12.0.0
   permission_handler: ^11.3.1
   http: ^1.2.1
