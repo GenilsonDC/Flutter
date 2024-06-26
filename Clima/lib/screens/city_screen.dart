@@ -40,7 +40,7 @@ class _CityScreenState extends State<CityScreen> {
                 padding: EdgeInsets.all(20.0),
                 child: TextField(
                   style: TextStyle(
-                      color: kBlueColor,
+                      color: kBraunColor,
                       fontFamily: 'Dosis',
                       fontSize: 23.0,
                       fontWeight: FontWeight.w600),

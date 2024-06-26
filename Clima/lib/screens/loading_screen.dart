@@ -47,7 +47,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       backgroundColor: kBlackColorBg,
       body: Center(
         child: SpinKitSpinningLines(
-          color: kBlueColor,
+          color: kLightHorizon,
           size: 190.0,
         ),
       ),

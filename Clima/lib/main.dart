@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Clima',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: kBlueColor) ,
+        colorScheme: ColorScheme.fromSeed(seedColor: kBraunColor) ,
         useMaterial3: true,
       ),
       // ignore: prefer_const_constructors

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kBlueColor = Color(0xff425455);
+const kBraunColor = Color(0xff512f01);
 const kLightHorizon = Color(0xa1fdedce);
 const kLightYellowColor = Color(0xffFFF455);
 const kYellowColor = Color(0xffFFC700);
@@ -9,14 +9,16 @@ const kBlackColorBg = Color(0xff000622);
 
 const kTempTextStyle = TextStyle(
   fontFamily: 'Dosis',
-  fontSize: 100.0,
+  fontSize: 120.0,
+  fontWeight: FontWeight.w500,
   color: Colors.white,
 );
 
 const kMessageTextStyle = TextStyle(
   fontFamily: 'Dosis',
-  fontSize: 60.0,
-  color: Colors.white,
+  fontWeight: FontWeight.w600,
+  fontSize: 50.0,
+  color: kBraunColor,
 );
 
 const kButtonTextStyle = TextStyle(
@@ -25,7 +27,24 @@ const kButtonTextStyle = TextStyle(
   color: kLightRedColor,
 );
 
-const kConditionTextStyle = TextStyle(fontSize: 90.0, color: kYellowColor);
+const kConditionTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontFamily: 'Dosis',
+  fontWeight: FontWeight.w300,
+  color: kBraunColor,
+);
+const kLandscapeConditionTextStyle = TextStyle(
+  fontSize: 30.0,
+  fontFamily: 'Dosis',
+  fontWeight: FontWeight.w400,
+  color: kBraunColor,
+);
+const kLandscapeMessageTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontFamily: 'Dosis',
+  fontWeight: FontWeight.w600,
+  color: kBraunColor,
+);
 
 const kTextFieldInputDecoration = InputDecoration(
   filled: true,
@@ -33,7 +52,6 @@ const kTextFieldInputDecoration = InputDecoration(
   hintText: 'Enter City Name',
   hintStyle: TextStyle(
     color: Colors.blueGrey,
-
   ),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(
