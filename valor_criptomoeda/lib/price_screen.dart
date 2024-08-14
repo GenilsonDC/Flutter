@@ -11,7 +11,7 @@ class PriceScreen extends StatefulWidget {
 }
 
 class _PriceScreenState extends State<PriceScreen> {
-  String selectedCurrency = 'BRL';
+  String selectedCurrency = 'USD';
 
   void showAndroidPicker(BuildContext context) {
     showMaterialScrollPicker(
@@ -61,9 +61,9 @@ class _PriceScreenState extends State<PriceScreen> {
     }
   }
 
-  Column makeCards(){
+  Column makeCards() {
     List<CryptoCard> cryptoCards = [];
-    for(String crypto in cryptoList){
+    for (String crypto in cryptoList) {
       cryptoCards.add(
         CryptoCard(
           cryptoCurrency: crypto,
@@ -84,14 +84,14 @@ class _PriceScreenState extends State<PriceScreen> {
     getData();
   }
 
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('🪙')),
+        title: Center(
+            child: Image.asset('images/crypitos.png', height: 80.0, width: 195.0)),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +106,7 @@ class _PriceScreenState extends State<PriceScreen> {
             child: Platform.isIOS
                 ? iOSPicker()
                 : Container(
-              height: 60.0,
+                    height: 60.0,
                     width: screenWidth * 0.7,
                     child: ElevatedButton(
                       onPressed: () => showAndroidPicker(context),

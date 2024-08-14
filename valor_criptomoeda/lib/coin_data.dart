@@ -27,17 +27,16 @@ const List<String> currenciesList = [
 
 const List<String> cryptoList = [
   'BTC',
-  'YFI',
-  'ETH',
-  'PAXG',
-  'MKR',
-  'BNB',
   'BCH',
+  'ETH',
+  'SOL',
+  'XRP',
+  'DOGE',
+  'MANA',
 ];
 
 const coinAPIURL = 'https://rest.coinapi.io/v1/exchangerate';
 const apiKey = 'apiKey';
-
 class CoinData {
   Future<Map<String, String>> getCoinData(String selectedCurrency) async {
     Map<String, String> cryptoPrices = {};

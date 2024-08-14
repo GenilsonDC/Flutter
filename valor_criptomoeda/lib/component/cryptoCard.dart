@@ -23,16 +23,28 @@ class CryptoCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
-          child: Text(
-            '1 $cryptoCurrency = $value $selectedCurrency',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Comfortaa',
-              fontSize: 22.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF070d1c),
-            ),
+          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 28.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'images/$cryptoCurrency.png',
+                height: 40.0,
+                width: 40.0,
+              ),
+              Expanded(
+                child: Text(
+                  '1 $cryptoCurrency = $value $selectedCurrency',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Comfortaa',
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF070d1c),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
