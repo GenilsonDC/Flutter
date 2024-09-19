@@ -14,9 +14,9 @@ class MessageChat extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: 'welcome_screeen',
+      initialRoute: WelcomeScreen.id,
       routes: {
-        'welcome_screen': (context) => WelcomeScreen(),
+       WelcomeScreen.id: (context) => WelcomeScreen(),
         'login_screen': (context) => LoginScreen(),
         'registration_screen' :(context) => RegistrationScreen(),
         'ChatScreeen' : (context) => ChatScreen(),
