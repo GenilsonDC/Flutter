@@ -1,6 +1,6 @@
+import 'package:clima_2/services/weather_service.dart';
 import 'package:flutter/material.dart';
 import 'package:clima_2/constants/constants.dart';
-import 'package:clima_2/services/weather.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'city_screen.dart';
 
@@ -14,7 +14,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  final WeatherModel weather = WeatherModel();
+  final WeatherService weather = WeatherService();
 
   int temperature = 0;
   Widget weatherIcon = const SizedBox();
@@ -32,7 +32,7 @@ class _LocationScreenState extends State<LocationScreen> {
     if (weatherData == null || weatherData['cod'] != 200) {
       setState(() {
         temperature = 0;
-        weatherIcon = Image.asset('images/404.png', height: 120, width: 150);
+        weatherIcon = Image.asset('images/404cloud.png', height: 120, width: 150);
         weatherMessage = 'Check your writing';
         cityName = '';
         description = '';
@@ -71,14 +71,16 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: const AssetImage('images/clouds.gif'),
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.8),
-              BlendMode.dstATop,
-            ),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              kLightBlueColor ,
+              kWhiteColor,
+              kLightPinkColor,
+              kPinkColor,
+            ],
           ),
         ),
         constraints: const BoxConstraints.expand(),
@@ -93,13 +95,13 @@ class _LocationScreenState extends State<LocationScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.near_me,
-                            size: 50.0, color: kBraunColor),
+                        icon: const Icon(Icons.person_pin_circle_outlined,
+                            size: 50.0, color: kGrayColor),
                         onPressed: updateWeatherFromLocation,
                       ),
                       IconButton(
-                        icon: const Icon(Icons.location_city_rounded,
-                            size: 50.0, color: kBraunColor),
+                        icon: const Icon(Icons.search_rounded,
+                            size: 50.0, color: kGrayColor),
                         onPressed: updateWeatherFromCity,
                       ),
                     ],
@@ -109,7 +111,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('$temperature°', style: kTempTextStyle),
+                          Text('$temperature°', style: isPortrait ? kTempTextStyle: kLandscapeTempTextStyle),
                           const SizedBox(width: 8.0),
                           weatherIcon,
                         ],

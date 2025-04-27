@@ -1,44 +1,63 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xa1fdedce);
-const kSecundaryColor = Color(0xa11dedce);
-const kCityColorText = Color(0xf100e33e);
-const kPrincipalColorText = Color(0xfffdedce);
-const kWeatherColorText = Color(0x917dedce);
+const kLightBlueColor = Color(0xffB7E0FF);
+const kLightYellowColor = Color(0xffFFF5CD);
+const kLightPinkColor = Color(0xffFFCFB3);
+const kPinkColor = Color(0xffE78F81);
+const kWhiteColor = Color(0xffffffff);
+const kGrayColor = Color(0xff494949);
+const kBlackColor = Color(0xff0d0d12);
 
-var kTempTextStyle = TextStyle(
+const kTempTextStyle = TextStyle(
   fontFamily: 'Dosis',
   fontSize: 120.0,
   fontWeight: FontWeight.w500,
-  color: kPrincipalColorText,
+  color: kGrayColor,
 );
 
-var kMessageText = TextStyle(
-  fontFamily: 'Dosis',
-  fontSize: 50.0,
-  fontWeight: FontWeight.w500,
-  color: kWeatherColorText,
+const kMessageTextStyle = TextStyle(
+  fontWeight: FontWeight.w300,
+  fontSize: 30.0,
+  color: kGrayColor,
 );
-var kButtonText = TextStyle(
-  fontFamily: 'Dosis',
+
+const kButtonTextStyle = TextStyle(
   fontSize: 25.0,
-  color: kPrincipalColorText,
 );
 
-var kWeatherCondition = TextStyle(
+const kConditionTextStyle = TextStyle(
+  fontSize: 40.0,
+  fontWeight: FontWeight.w300,
+  color: kBlackColor,
+);
+const kLandscapeTempTextStyle = TextStyle(
   fontFamily: 'Dosis',
-  fontSize: 40.00,
+  fontSize: 80.0,
   fontWeight: FontWeight.w500,
-  color: kWeatherColorText,
+  color: kGrayColor,
 );
 
-var kConditionTextStyle = TextStyle();
+const kLandscapeConditionTextStyle = TextStyle(
+  fontSize: 30.0,
+  fontWeight: FontWeight.w400,
+  color: kBlackColor,
+);
+const kLandscapeMessageTextStyle = TextStyle(
+  fontWeight: FontWeight.w300,
+  color: kBlackColor,
+);
 
-var kLandscapeMessageTextStyle = TextStyle();
-
-var kMessageTextStyle = TextStyle();
-
-var kLightHorizon = TextStyle();
-
-var kLandscapeConditionTextStyle = TextStyle();
-
+const kTextFieldInputDecoration = InputDecoration(
+  filled: true,
+  fillColor: kWhiteColor,
+  hintText: 'Enter City Name',
+  hintStyle: TextStyle(
+    color: kGrayColor,
+  ),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(50.0),
+    ),
+    borderSide: BorderSide.none,
+  ),
+);

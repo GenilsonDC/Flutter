@@ -1,5 +1,6 @@
 import 'package:clima_2/screens/location_screen.dart';
 import 'package:clima_2/constants/constants.dart';
+import 'package:clima_2/services/weather_service.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -34,9 +35,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
         throw Exception('⛔ Location permissions are denied.');
       }
 
-      Position position = await Geolocator.getCurrentPosition();
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low,
+        timeLimit: const Duration(seconds: 10),
+      );
 
-      var weatherData = await WeatherModel().getLocationWeather(
+      var weatherData = await WeatherService().getLocationWeather(
         latitude: position.latitude,
         longitude: position.longitude,
       );
@@ -50,16 +54,20 @@ class _LoadingScreenState extends State<LoadingScreen> {
       );
     } catch (e) {
       debugPrint('Error getting location/weather: $e');
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: ${e.toString()}')),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: kPrimaryColor,
+      backgroundColor: kLightBlueColor,
       body: Center(
         child: SpinKitSpinningLines(
-          color: kLightHorizon,
+          color: kLightYellowColor,
           size: 190.0,
         ),
       ),
