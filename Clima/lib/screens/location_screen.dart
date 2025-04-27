@@ -5,7 +5,7 @@ import 'package:clima/services/weather.dart';
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
-  LocationScreen({this.locationWeather});
+  const LocationScreen({super.key, this.locationWeather});
 
   final locationWeather;
 
@@ -57,13 +57,13 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/clouds.gif'),
+            image: const AssetImage('images/clouds.gif'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.8), BlendMode.dstATop),
           ),
         ),
-        constraints: BoxConstraints.expand(),
+        constraints: const BoxConstraints.expand(),
         child: SafeArea(
           child: OrientationBuilder(
             builder: (context, orientation) {
@@ -79,7 +79,7 @@ class _LocationScreenState extends State<LocationScreen> {
                           var weatherData = await weather.getLocationWeather();
                           updateUI(weatherData);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.near_me,
                           size: 50.0,
                           color: kBraunColor,
@@ -91,7 +91,7 @@ class _LocationScreenState extends State<LocationScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return CityScreen();
+                                return const CityScreen();
                               },
                             ),
                           );
@@ -101,7 +101,7 @@ class _LocationScreenState extends State<LocationScreen> {
                             updateUI(weatherData);
                           }
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.location_city_rounded,
                           size: 50.0,
                           color: kBraunColor,
@@ -120,7 +120,7 @@ class _LocationScreenState extends State<LocationScreen> {
                               '$temperature°',
                               style: kTempTextStyle,
                             ),
-                            weatherIcon ?? SizedBox(),
+                            weatherIcon ?? const SizedBox(),
                           ],
                         ),
                         Text(
