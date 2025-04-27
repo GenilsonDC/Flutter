@@ -50,23 +50,34 @@ class WeatherService {
   }
 
 
-  Widget getWeatherIcon(int condition) {
-    if (condition < 300) {
-      return Image.asset('images/Thunderstorm.png',height: 120, width: 150,);
-    } else if (condition < 400) {
-      return Image.asset('images/Rain.png',height: 120, width: 120,);
-    } else if (condition < 600) {
-      return Image.asset('images/LightRain.png',height: 120, width: 150,);
-    } else if (condition < 700) {
-      return Image.asset('images/Snow.png',height: 110, width: 110,);
+  Widget getWeatherIcon(int condition, String weatherIcon) {
+    if (condition < 300 ) {
+      return Image.asset('images/11d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    }
+    else if (condition < 400) {
+      return Image.asset('images/09d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition < 600 && weatherIcon == '10d') {
+      return Image.asset('images/10d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    }  else if (condition < 600 && weatherIcon == '10n') {
+      return Image.asset('images/10n@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    }else if (condition < 700) {
+      return Image.asset('images/13d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
     } else if (condition < 800) {
-      return Image.asset('images/Clouds.png',height: 110, width: 110,);
-    } else if (condition == 800) {
-      return Image.asset('images/Clear.png',height: 150, width: 150,);
-    } else if (condition <= 804) {
-      return Image.asset('images/Clouds.png',height: 120, width: 150,);
+      return Image.asset('images/50d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition == 800 && weatherIcon == '01d') {
+      return Image.asset('images/01d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition == 800 && weatherIcon == '01n') {
+      return Image.asset('images/01n@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition == 801 && weatherIcon == '02d') {
+      return Image.asset('images/02d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition == 801 && weatherIcon == '02n') {
+      return Image.asset('images/02n@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    } else if (condition == 802) {
+      return Image.asset('images/03d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
+    }   else if (condition <= 804) {
+      return Image.asset('images/04d@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
     } else {
-      return Image.asset('images/404.png',height: 120, width: 150,);
+      return Image.asset('images/404@2x.png',height: 150,  width: 150, fit: BoxFit.cover,);
     }
   }
 
@@ -74,7 +85,7 @@ class WeatherService {
     if (temp > 29) {
       return 'Today we have 🍦 \nBecause it\'s hot';
     } else if (temp > 25) {
-      return 'Today you can wear shorts and a 👕 \nBecause the weather is nice';
+      return 'Today you can wear 🩳 and a 👕 \nBecause the weather is nice';
     } else if (temp < 17) {
       return 'It\'s chilly ❄️ \nyou\'ll need 🧣 and 🧤';
     } else {

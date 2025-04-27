@@ -31,11 +31,9 @@ class _CityScreenState extends State<CityScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              kBlackColor,
-              kLightBlueColor ,
-              kLightYellowColor ,
-              kLightPinkColor,
-              kPinkColor,
+              kGrayColor,
+              kLightBlueColor,
+              kWhiteColor,
             ],
           ),
         ),
@@ -70,15 +68,14 @@ class _CityScreenState extends State<CityScreen> {
               ),
               const SizedBox(height: 30),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:  kPinkColor,
+                    backgroundColor: kLightPinkColor,
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     foregroundColor: kBlackColor,
                     overlayColor: kLightBlueColor.withOpacity(0.7),
                     textStyle: kButtonTextStyle,
-
                   ),
                   onPressed: submitCityName,
                   child: const Text('Get Weather'),
