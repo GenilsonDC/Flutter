@@ -32,7 +32,8 @@ class _LocationScreenState extends State<LocationScreen> {
     if (weatherData == null || weatherData['cod'] != 200) {
       setState(() {
         temperature = 0;
-        weatherIcon = Image.asset('images/404cloud.png', height: 120, width: 150);
+        weatherIcon =
+            Image.asset('images/404cloud.png', height: 120, width: 150);
         weatherMessage = 'Check your writing';
         cityName = '';
         description = '';
@@ -43,7 +44,10 @@ class _LocationScreenState extends State<LocationScreen> {
     setState(() {
       temperature = weatherData['main']['temp'].toInt();
       var condition = weatherData['weather'][0]['id'];
-      weatherIcon = weather.getWeatherIcon(condition);
+      var iconCode = weatherData['weather'][0]['icon'];
+
+      weatherIcon = weather.getWeatherIcon(condition, iconCode);
+
       weatherMessage = weather.getMessage(temperature);
       cityName = weatherData['name'];
       description = weatherData['weather'][0]['description'];
@@ -75,12 +79,7 @@ class _LocationScreenState extends State<LocationScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              kLightBlueColor ,
-              kWhiteColor,
-              kLightPinkColor,
-              kPinkColor,
-            ],
+            colors: [kWhiteColor, kLightBlueColor, kLightBlueColor],
           ),
         ),
         constraints: const BoxConstraints.expand(),
@@ -111,7 +110,10 @@ class _LocationScreenState extends State<LocationScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('$temperature°', style: isPortrait ? kTempTextStyle: kLandscapeTempTextStyle),
+                          Text('$temperature°',
+                              style: isPortrait
+                                  ? kTempTextStyle
+                                  : kLandscapeTempTextStyle),
                           const SizedBox(width: 8.0),
                           weatherIcon,
                         ],
