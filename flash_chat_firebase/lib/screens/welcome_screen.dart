@@ -1,5 +1,7 @@
 import 'package:flash_chat_firebase/screens/login_screen.dart';
+import 'package:flash_chat_firebase/constants/constants.dart';
 import 'package:flash_chat_firebase/screens/registration_screen.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -19,10 +21,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     );
-    animation = ColorTween(begin: Color(0xa1494949), end: Color(0xffffffff))
-        .animate(controller);
+    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     controller.forward();
     controller.addListener(() {
       setState(() {});
@@ -38,7 +39,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: animation.value,
+      backgroundColor: Color(0xfff1f1f1),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 26.0),
         child: Column(
@@ -51,16 +52,18 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: 60.0,
+                    height: animation.value * 100,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    color: Color(0xa1494949).withOpacity(controller.value),
-                    fontWeight: FontWeight.w900,
-                  ),
+                AnimatedTextKit(
+                  animatedTexts: <AnimatedText>[
+                    ColorizeAnimatedText(
+                      textStyle: colorizeTextStyle,
+                      'Flash Chat',
+                      colors: colorizeColors,
+                    ),
+                  ],
+                  isRepeatingAnimation: true,
                 ),
               ],
             ),

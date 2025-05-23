@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = 'registration_screen';
+
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }
@@ -31,6 +32,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
+              style: TextStyle(
+                color: Color(0xff393939),
+              ),
               decoration: InputDecoration(
                 hintText: 'Insira seu e-mail',
                 contentPadding:
@@ -55,6 +59,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
+              style: TextStyle(
+                color: Color(0xff393939),
+              ),
               decoration: InputDecoration(
                 hintText: 'Insira sua senha',
                 contentPadding:
@@ -89,8 +96,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 42.0,
                   child: Text(
                     'Registrar',
-                    style: TextStyle(color: Colors.white,
-                    fontSize: 20.0),
+                    style: TextStyle(color: Colors.white, fontSize: 20.0),
                   ),
                 ),
               ),

@@ -17,3 +17,16 @@ const kMessageContainerDecoration = BoxDecoration(
     top: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
   ),
 );
+
+const colorizeColors = [
+  Color(0xff474747),
+  Color(0xff083efa),
+  Color(0xff06f2fa),
+  Color(0xffffffff),
+  Color(0xff9f00ef),
+];
+
+const colorizeTextStyle = TextStyle(
+  fontSize: 47.0,
+  fontWeight: FontWeight.bold,
+);
