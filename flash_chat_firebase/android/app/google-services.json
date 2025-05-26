@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "510205943488",
+    "project_id": "flash-chat-flutter-genilsondc",
+    "storage_bucket": "flash-chat-flutter-genilsondc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510205943488:android:c2229db0f569b8d2d61725",
+        "android_client_info": {
+          "package_name": "genilsondocarmo.com.flash_chat_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhaLQRBaQzwhCkVuftscHCjbZYM-FUUGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
